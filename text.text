@@ -28,7 +28,7 @@ laurea (286)
 20/06/2020 (21)
     SELECT * 
     FROM `exams` 
-    WHERE `date` = "2020-06-20" AND `hour`>= "14%"
+    WHERE `date` = "2020-06-20" AND `hour`>= "14"
 
 
 6. Selezionare tutti i corsi di laurea magistrale (38)
@@ -39,12 +39,12 @@ laurea (286)
 
 
 7. Da quanti dipartimenti è composta l'università? (12)
-    SELECT * 
+    SELECT COUNT('id') as departments_count
     FROM `departments`
 
 
 
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
-    SELECT * 
+    SELECT COUNT('id') as count_teachers
     FROM `teachers` 
     WHERE `phone` IS NULL
