@@ -44,17 +44,18 @@ JOIN
     JOIN departments 
     ON degrees.department_id = departments.id 
     WHERE departments.name = 'Dipartimento di Neuroscienze'
+    AND degrees.level = "Magistrale"
 
 
 3. Selezionare tutti i corsi (course ) in cui insegna (course_teacher) Fulvio Amato (id=44) (teachers)
 
-    SELECT courses.*, teachers.name 
-    FROM courses 
-    JOIN course_teacher 
-    ON courses.id = course_teacher.course_id 
+    SELECT course_teacher.*, courses.name, courses.id, teachers.id, teachers.name, teachers.surname 
+    FROM course_teacher
+    JOIN courses 
+    ON courses.id = course_teacher.course_id
     JOIN teachers 
-    ON course_teacher.course_id = teachers.id 
-    WHERE teachers.id = 44
+    ON teachers.id = course_teacher.teacher_id
+    WHERE teachers.name = "Fulvio" AND teachers.surname = "Amato"
 
 
 
